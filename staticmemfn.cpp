@@ -1,33 +1,24 @@
 #include <iostream>
 using namespace std;
-
-class MyClass {
+class Counter {
 private:
-    static int count;  // Static data member
+    static int count;
 
 public:
-    MyClass() {
-        count++;  // Increment count every time an object is created
+    Counter() {
+        count++;
     }
 
-    // Static member function to access static data member
-    static int getCount() {
-        return count;
+    static void displayCount() { 
+        cout << "Count: " << count << endl;
     }
 };
 
-// Initialize static data member outside the class
-int MyClass::count = 0;
-
+int Counter::count = 0; 
 int main() {
-    MyClass obj1;
-    MyClass obj2;
-
-    // Call static member function using class name
-    cout << "Number of objects created: " << MyClass::getCount() << endl;
-
-    MyClass obj3;
-    cout << "Number of objects created after creating obj3: " << MyClass::getCount() << endl;
-
+    Counter c1;
+    Counter c2;
+    Counter c3;
+    Counter::displayCount();
     return 0;
 }
